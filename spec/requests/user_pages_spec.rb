@@ -86,6 +86,23 @@ describe "User pages" do
       end
     end
 
+    describe "with setting admin attribute" do
+      before do
+        post("users", { name: "Example User", 
+                        email: "admintestuser@example.com", 
+                        password: "foobar",
+                        confirmation: "foobar",
+                        admin: "true" } )   
+        #@user = User.find_by_email('admin@example.com')
+        
+      end
+
+      #it "should not set admin for new user" do
+      #  user.admin.should == false
+      #  response.should_not be_success
+      #end
+    end
+
     describe "with valid information" do
       before do
         fill_in "Name",         with: "Example User"
